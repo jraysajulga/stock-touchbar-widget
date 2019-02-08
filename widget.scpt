@@ -9,7 +9,7 @@ set price to (do shell script "curl -s \"https://www.marketwatch.com/investing/f
 set diff to price - limit # calculate different from chosen limit
 
 # Sets up character meter that quantifies diff visually
-set n to (round (diff / price * 10000))
+set n to (round (diff / price * 50000))
 if n < 0 then
 	set n to -n
 end if
@@ -23,5 +23,5 @@ if (alert < price) = (dir = "+") then
 	set alert_msg to "[ALERT TRIGGERED!]"
 end if
 
-return ticker & ": " & price & " (" & diff & ")	" & dots & alert_msg & "
+return dots & " " & ticker & ": " & price & " (" & diff & ") " & dots & alert_msg & "
 " & "lim: " & limit & " alert: " & alert
